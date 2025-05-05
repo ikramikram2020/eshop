@@ -1,0 +1,64 @@
+﻿@model eshop2.Models.product
+
+@{
+    ViewBag.Title = "Modifier";
+}
+
+<h2>Modifier le produit :</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.Id)
+
+
+    <div class="form-horizontal">
+        <fieldset>
+            <legend>Modifier un produit</legend>
+            <div class="form-group">
+                <label class="col-lg-2 control-label">ID du produit :</label>
+                <div class="col-lg-10">
+                    @Html.EditorFor(model => model.Id)
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                <label class="col-lg-2 control-label">Nom :</label>
+                <div class="col-lg-10">
+                    @Html.EditorFor(model => model.Product_name)
+                    @Html.ValidationMessageFor(model => model.Product_name)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-lg-2 control-label">Description :</label>
+                <div class="col-lg-10">
+                    @Html.EditorFor(model => model.product_description)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-lg-2 control-label">Quantité :</label>
+                <div class="col-lg-10">
+                    @Html.EditorFor(model => model.Quantite)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-lg-2 control-label">Prix :</label>
+                <div class="col-lg-10">
+                    @Html.EditorFor(model => model.prix)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-lg-10 col-lg-offset-2">
+                    <button type="submit" class="btn btn-primary">Modifier</button>
+                    <button type="button" class="btn btn-default" onclick="location.href='@Url.Action("ListeProduit", "Produits")'">Revenir au catalogue</button>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+}

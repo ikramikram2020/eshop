@@ -1,0 +1,19 @@
+﻿ @model eshop2.Models.product
+
+@{
+    ViewBag.Title = "AfficherProduit";
+}
+
+<h2>Afficher Let Details du produit </h2>
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title">Panel success</h3>
+    </div>
+    <div class="panel-body">
+        <p>@Html.DisplayFor(model => model .Product_name)</p>
+        <p>@Html.DisplayFor(model => model.product_description)</p>
+        <p>@Html.DisplayFor(model => model.Quantite)</p>
+        <p>@Html.DisplayFor(model => model.prix)</p>
+    </div>
+</div>
+

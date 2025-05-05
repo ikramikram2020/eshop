@@ -1,0 +1,41 @@
+﻿@model IEnumerable<eshop2.Models.product>
+
+@{
+    ViewBag.Title = "ListeProduit";
+}
+
+<h2>Liste des Produits</h2>
+
+<table class="table table-striped table-hover">
+    <tr class="info">
+        <th>@Html.DisplayNameFor(model => model.First().Product_name)</th>
+        <th>@Html.DisplayNameFor(model => model.First().produitImage)</th>
+        <th>@Html.DisplayNameFor(model => model.First().product_description)</th>
+        <th>@Html.DisplayNameFor(model => model.First().Quantite)</th>
+        <th>@Html.DisplayNameFor(model => model.First().prix)</th>
+        <th>Actions</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Product_name)</td>
+            <td>
+                @if (item.produitImage != null)
+                {
+                    <img width="200" src="@Url.Action("GetImage", "Product", new { id = item.Id })" />
+                }
+            </td>
+
+
+
+
+            <td>@Html.DisplayFor(modelItem => item.product_description)</td>
+            <td>@Html.DisplayFor(modelItem => item.Quantite)</td>
+            <td>@Html.DisplayFor(modelItem => item.prix)</td>
+            <td>
+                @Html.ActionLink("Afficher details", "AfficherProduit", new { id = item.Id }, new { @class = "btn btn-info" })
+            </td>
+        </tr>
+    }
+</table>

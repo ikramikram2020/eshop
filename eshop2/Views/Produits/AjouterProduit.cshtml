@@ -1,0 +1,57 @@
+﻿
+@model eshop2.Models.product
+
+@{
+    ViewBag.Title = "AjouterProduit";
+}
+
+@using (Html.BeginForm("AjouterProduit", "Produits", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <form class="form-horizontal">
+        <fieldset>
+            <legend>Ajouter un produit  </legend>
+            <div class="form-group">
+                <label class="col-lg-2 control-label">Nom :</label>
+                <div class="col-lg-10">
+                    @Html.EditorFor(model => model.Product_name)
+                    @Html.ValidationMessageFor(model => model.Product_name)
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-2 control-label">Description :</label>
+                <div class="col-lg-10">
+                    @Html.EditorFor(model => model.product_description)
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-2 control-label">Quintite :</label>
+                <div class="col-lg-10">
+                    @Html.EditorFor(model => model.Quantite)
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-2 control-label">Prix</label>
+                <div class="col-lg-10">
+                    @Html.EditorFor(model => model.prix)
+
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-lg-10 col-lg-offset-2">
+                    <button type="submit" value="AjouterProduit" class="btn btn-default">Ajouter</button>
+                    <button type="button" class="btn btn-default" onclick="location.href='@Url.Action("ListeProduit", "Produits")'">Revenir au catalogoe</button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+}
+
+
+
+
+
